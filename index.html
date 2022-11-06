@@ -15,9 +15,67 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body>
-    <header class="header bg-primary"><span class="text-white">Weather Dashboard</span></header>
-    <main></main>
-    <footer></footer>
+    <header class="header bg-primary">
+      <span class="text-white">Weather Dashboard</span>
+    </header>
+
+    <div class="container">
+      <div class="row mt-4">
+        <div class="col-md-3">
+          <h5>Search for a City:</h5>
+          <input type="text" placeholder="San Diego" /><button
+            class="btn my-2 w-50 btn-primary"
+          >
+            Search
+          </button>
+          <hr />
+        </div>
+        <div class="col-md-6">
+          <div>
+            <div class="currentTitle"></div>
+            <div class="currentTemp"></div>
+            <div class="currentWind"></div>
+            <div class="currentHumidity"></div>
+          </div>
+          <div class="forcast">
+            <h5>5-Day Forecast:</h5>
+            <div class="row mt-4">
+              <div class="col-md-2">
+                <div class="forecast0Title"></div>
+                <div class="forecast0Temp"></div>
+                <div class="forecast0Wind"></div>
+                <div class="forecast0Humidity"></div>
+              </div>
+              <div class="col-md-2">
+                <div class="forecast1Title"></div>
+                <div class="forecast1Temp"></div>
+                <div class="forecast1Wind"></div>
+                <div class="forecast1Humidity"></div>
+              </div>
+              <div class="col-md-2">
+                <div class="forecast2Title"></div>
+                <div class="forecast2Temp"></div>
+                <div class="forecast2Wind"></div>
+                <div class="forecast2Humidity"></div>
+              </div>
+              <div class="col-md-2">
+                <div class="forecast3Title"></div>
+                <div class="forecast3Temp"></div>
+                <div class="forecast3Wind"></div>
+                <div class="forecast3Humidity"></div>
+              </div>
+              <div class="col-md-2">
+                <div class="forecast4Title"></div>
+                <div class="forecast4Temp"></div>
+                <div class="forecast4Wind"></div>
+                <div class="forecast4Humidity"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
@@ -33,6 +91,7 @@
       integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk"
       crossorigin="anonymous"
     ></script>
+    <script src="./assets/js/config.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
