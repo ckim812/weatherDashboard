@@ -1,7 +1,19 @@
+let savedCities = [];
+
 const init = async () => {
   city = document.querySelector("input").value; //define input into a variable
-
   if (!city) return;
+
+  savedCities.push(city);
+  console.log(savedCities);
+  localStorage.setItem("savedCities", savedCities);
+
+  for (let i = 0; i < savedCities.length; i++) {
+    const savedCity = savedCities[i];
+    document.querySelector(
+      ".savedCities"
+    ).innerHTML = `<li><button>${savedCity}</button></li>`;
+  }
 
   //current weather and forecast weather APIs
   let currentURL = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=imperial&q=${city}`;
@@ -19,6 +31,7 @@ const init = async () => {
   var currentTimeStamp = x.dt;
   var currentDateFormat = new Date(currentTimeStamp * 1000);
 
+  //print current weather
   document.querySelector(
     ".currentTitle"
   ).innerHTML = `<h2>${city}  ${currentDateFormat}</h2>`;
@@ -29,14 +42,13 @@ const init = async () => {
   document.querySelector(".currentHumidity").textContent =
     "Humidity: " + x.main.humidity + " %";
 
+  //loop to print 5-day forecast
   let z = 0;
   for (let i = 7; i < y.length; i += 8) {
     console.log(i);
     let date = new Date(y[i].dt * 1000);
     console.log(date);
-    document.querySelector(
-      `.forecast${z}Title`
-    ).innerHTML = `<h7>${city}  ${date}</h7>`;
+    document.querySelector(`.forecast${z}Title`).innerHTML = `<h7>${date}</h7>`;
     document.querySelector(`.forecast${z}Temp`).textContent =
       "Temperature: " + y[i].main.temp + " \u00B0F";
     document.querySelector(`.forecast${z}Wind`).textContent =
