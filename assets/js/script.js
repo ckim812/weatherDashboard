@@ -1,3 +1,5 @@
+let apiKey = 'f09736215f8792d83b9ea278642c25cc'
+
 let savedCities = [];
 
 const init = async () => {
@@ -30,17 +32,17 @@ const init = async () => {
 
   var currentTimeStamp = x.dt;
   var currentDateFormat = new Date(currentTimeStamp * 1000);
+  // let currentIcon = data.list.weather[0].icon;
 
   //print current weather
-  document.querySelector(
-    ".currentTitle"
-  ).innerHTML = `<h2>${city}  ${currentDateFormat}</h2>`;
-  document.querySelector(".currentTemp").textContent =
-    "Temperature: " + x.main.temp + " \u00B0F";
-  document.querySelector(".currentWind").textContent =
-    "Wind: " + x.wind.speed + " MPH";
-  document.querySelector(".currentHumidity").textContent =
-    "Humidity: " + x.main.humidity + " %";
+  document.querySelector(    ".currentTitle"  ).innerHTML = `<h2>${city}  ${currentDateFormat}</h2>`;
+  document.querySelector(    ".currentIcon"  ).innerHTML = `<img src=http://openweathermap.org/img/wn/${x.weather[0].icon}.png></img>`;
+  document.querySelector(".currentTemp").textContent =    "Temperature: " + x.main.temp + " \u00B0F";
+  document.querySelector(".currentWind").textContent =    "Wind: " + x.wind.speed + " MPH";
+  document.querySelector(".currentHumidity").textContent =    "Humidity: " + x.main.humidity + " %";
+
+// document.getElementByID("img"+(i+1)).src =" + https://openweatehermap.org/img/wn/" + data.list.weather[0].icon + ".png"
+// <img src="dots.png" class="imgclass" id="currentIcon" alt=""></img>
 
   //loop to print 5-day forecast
   let z = 0;
@@ -49,6 +51,7 @@ const init = async () => {
     let date = new Date(y[i].dt * 1000);
     console.log(date);
     document.querySelector(`.forecast${z}Title`).innerHTML = `<h7>${date}</h7>`;
+    document.querySelector(    `.forecast${z}Icon`  ).innerHTML = `<img src=http://openweathermap.org/img/wn/${y[i].weather[0].icon}.png></img>`;
     document.querySelector(`.forecast${z}Temp`).textContent =
       "Temperature: " + y[i].main.temp + " \u00B0F";
     document.querySelector(`.forecast${z}Wind`).textContent =
