@@ -6,11 +6,17 @@ const init = async () => {
   city = document.querySelector("input").value; //define input into a variable
   if (!city) return; //exit function if no value is inputted
 
-  // save and display from localStorage
+  // save cities into localStorage
   savedCities.push(city);
   console.log(savedCities);
   localStorage.setItem("savedCities", savedCities);
 
+  //clear all child elements from localStorage display list
+  while (document.querySelector(".savedCities").firstChild) {
+    document.querySelector(".savedCities").removeChild(document.querySelector(".savedCities").firstChild);
+  }
+
+  // display all cities from localStorage
   for (let i = 0; i < savedCities.length; i++) {
     let node = document.createElement("li");
     let nodeBtn = node.appendChild(document.createElement("button"));
@@ -18,7 +24,6 @@ const init = async () => {
     document.querySelector(".savedCities").appendChild(node);
   }
 
-  //need to fix cities from displaying more than once
   //create function (or maybe use init) to display the data from localStorage
   //add event listener to each created button to run function to display data from localStorage
 
