@@ -31,7 +31,7 @@ const init = async () => {
   console.log(y);
 
   var currentTimeStamp = x.dt;
-  var currentDateFormat = new Date(currentTimeStamp * 1000);
+  var currentDateFormat = new Date(currentTimeStamp * 1000).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
   // let currentIcon = data.list.weather[0].icon;
 
   //print current weather
@@ -48,7 +48,7 @@ const init = async () => {
   let z = 0;
   for (let i = 7; i < y.length; i += 8) {
     console.log(i);
-    let date = new Date(y[i].dt * 1000);
+    let date = new Date(y[i].dt * 1000).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric"});
     console.log(date);
     document.querySelector(`.forecast${z}Title`).innerHTML = `<h7>${date}</h7>`;
     document.querySelector(    `.forecast${z}Icon`  ).innerHTML = `<img src=http://openweathermap.org/img/wn/${y[i].weather[0].icon}.png></img>`;
